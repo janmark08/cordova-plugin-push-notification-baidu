@@ -1,47 +1,18 @@
 {
-  "_args": [
-    [
-      "cordova-plugin-push-baidu@5.6.1",
-      "C:\\ZIM\\zimmobileapp"
-    ]
-  ],
-  "_from": "cordova-plugin-push-baidu@5.6.1",
-  "_id": "cordova-plugin-push-baidu@5.6.1",
-  "_inBundle": false,
-  "_integrity": "sha1-m4mIeW2J6HYD0qo2LhzI2rI2PW8=",
-  "_location": "/cordova-plugin-push-baidu",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "cordova-plugin-push-baidu@5.6.1",
-    "name": "cordova-plugin-push-baidu",
-    "escapedName": "cordova-plugin-push-baidu",
-    "rawSpec": "5.6.1",
-    "saveSpec": null,
-    "fetchSpec": "5.6.1"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-push-baidu/-/cordova-plugin-push-baidu-5.6.1.tgz",
-  "_spec": "5.6.1",
-  "_where": "C:\\ZIM\\zimmobileapp",
-  "author": {
-    "name": "Ti-webdev"
-  },
-  "bugs": {
-    "url": "https://github.com/Ti-webdev/cordova-plugin-push-baidu/issues"
+  "name": "cordova-plugin-push-baidu-2021",
+  "version": "1.0.0",
+  "description": "Baidu push notification plugin for cordova",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "cordova": {
-    "id": "cordova-plugin-push-baidu",
+    "id": "cordova-plugin-push-baidu-2021",
     "platforms": [
       "android",
       "ios"
     ]
   },
-  "description": "Baidu push notification plugin for cordova",
-  "homepage": "https://github.com/Ti-webdev/cordova-plugin-push-baidu#readme",
   "keywords": [
     "push",
     "notification",
@@ -50,15 +21,14 @@
     "cordova-android",
     "cordova-ios"
   ],
-  "license": "ISC",
-  "main": "index.js",
-  "name": "cordova-plugin-push-baidu",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ti-webdev/cordova-plugin-push-baidu.git"
+    "url": "git+https://github.com/oleksandr-shevchenko/cordova-plugin-push-baidu.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "Oleksandr Shevchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oleksandr-shevchenko/cordova-plugin-push-baidu/issues"
   },
-  "version": "5.6.1"
+  "homepage": "https://github.com/oleksandr-shevchenko/cordova-plugin-push-baidu#readme"
 }

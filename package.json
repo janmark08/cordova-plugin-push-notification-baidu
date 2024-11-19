@@ -1,5 +1,5 @@
 {
-  "name": "cordova-plugin-push-baidu-2021",
+  "name": "cordova-plugin-push-baidu-2024",
   "version": "1.0.2",
   "description": "Baidu push notification plugin for cordova",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "cordova": {
-    "id": "cordova-plugin-push-baidu-2021",
+    "id": "cordova-plugin-push-baidu-2024",
     "platforms": [
       "android",
       "ios"
@@ -23,12 +23,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oleksandr-shevchenko/cordova-plugin-push-baidu.git"
+    "url": "git+https://github.com/janmark08/cordova-plugin-push-baidu-2024.git"
   },
   "author": "Oleksandr Shevchenko",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/oleksandr-shevchenko/cordova-plugin-push-baidu/issues"
+    "url": "https://github.com/janmark08/cordova-plugin-push-baidu-2024/issues"
   },
-  "homepage": "https://github.com/oleksandr-shevchenko/cordova-plugin-push-baidu#readme"
+  "homepage": "https://github.com/janmark08/cordova-plugin-push-baidu-2024#readme"
 }

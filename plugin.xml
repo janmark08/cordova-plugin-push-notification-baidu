@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
   id="cordova-plugin-push-baidu-2024"
-  version="5.6.1">
+  version="6.0.0">
   <name>BaiduPush</name>
 
   <js-module src="www/baiduPush.js" name="baiduPush">

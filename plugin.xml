@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-baidu-push-2024"
-        version="1.0.1">
+        version="1.0.0">
 
     <name>BaiduPush</name>
     <description>Cordova plugin for Baidu Push Service</description>
@@ -71,6 +71,16 @@
                 android:process=":bdservice_v1"
                 android:protectionLevel="signature"
                 android:writePermission="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.cordova.plugins.push.baidu" />
+                
+            <receiver
+                android:name="com.baidu.android.pushservice.RegistrationReceiver"
+                android:process=":bdservice_v1">
+                <intent-filter>
+                    <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                </intent-filter>
+            </receiver>
+
+
             <receiver android:name="com.cordova.plugins.push.baidu.BaiduPushReceiver">
                 <intent-filter>
                     <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
@@ -98,11 +108,7 @@
                     <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
                 </intent-filter>
             </receiver>
-            <provider
-                android:name="com.baidu.android.pushservice.PushInfoProvider"
-                android:authorities="com.cordova.plugins.push.baidu.bdpush"
-                android:process=":bdservice_v1"
-                android:writePermission="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.cordova.plugins.push.baidu" />
+            
             <meta-data
                 android:name="com.baidu.push.cid.cesium.ver"
                 android:value="270" />

@@ -61,7 +61,7 @@
 
         <receiver
             android:name="com.baidu.android.pushservice.PushServiceReceiver"
-            android:process=":bdservice_v1">
+            android:process=":bdservice_v1" android:exported="true">
             <intent-filter>
                 <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
 
@@ -77,7 +77,7 @@
 
         <receiver
             android:name="com.baidu.android.pushservice.RegistrationReceiver"
-            android:process=":bdservice_v1">
+            android:process=":bdservice_v1" android:exported="true">
             <intent-filter>
                 <action android:name="com.baidu.android.pushservice.action.METHOD" />
             </intent-filter>
@@ -103,7 +103,7 @@
             android:process=":bdservice_v1"
             android:protectionLevel="signature"
             android:writePermission="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.cordova.plugins.push.baidu" />
-		<receiver android:name="com.cordova.plugins.push.baidu.BaiduPushReceiver">
+		<receiver android:name="com.cordova.plugins.push.baidu.BaiduPushReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
                 <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
@@ -188,7 +188,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.baidu.android.pushservice.PushPatchMessageReceiver">
+        <receiver android:name="com.baidu.android.pushservice.PushPatchMessageReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
                 <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />
@@ -204,7 +204,7 @@
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.NoDisplay" />
 
-        <receiver android:name="com.baidu.android.pushservice.MzPushPatchMessageReceiver">
+        <receiver android:name="com.baidu.android.pushservice.MzPushPatchMessageReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="com.meizu.flyme.push.intent.MESSAGE" />
                 <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK" />
@@ -235,7 +235,7 @@
             android:name="com.vivo.push.sdk.service.CommandClientService"
             android:exported="true" />
 
-        <receiver android:name="com.baidu.android.pushservice.viproxy.ViPushMessageReceiver">
+        <receiver android:name="com.baidu.android.pushservice.viproxy.ViPushMessageReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="com.vivo.pushclient.action.RECEIVE" />
             </intent-filter>

@@ -2,25 +2,25 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-baidu-push-2024"
-        version="1.0.0">
+        version="1.0.1">
 
     <name>BaiduPush</name>
+    <description>Cordova plugin for Baidu Push Service</description>
+    <license>MIT</license>
+    <keywords>cordova, baidu, push notifications</keywords>
 
     <js-module src="www/baiduPush.js" name="baiduPush">
         <clobbers target="baiduPush" />
     </js-module>
 
-    <description>Cordova plugin for Baidu Push Service</description>
-    <license>MIT</license>
-    <keywords>cordova, baidu, push notifications</keywords>
-
     <!-- android -->
     <platform name="android">
-    <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="BaiduPush">
-        <param name="android-package" value="com.cordova.plugins.push.baidu.BaiduPush" />
-      </feature>
-    </config-file>
+        <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="BaiduPush">
+            <param name="android-package" value="com.cordova.plugins.push.baidu.BaiduPush" />
+        </feature>
+        </config-file>
+        
         <!-- Uses Permissions -->
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.INTERNET" />
@@ -174,7 +174,7 @@
                     <action android:name="com.meizu.flyme.push.intent.MESSAGE" />
                     <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK" />
                     <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK" />
-                    <category android:name="${applicationId}" />
+                    <category android:name="com.cordova.plugins.push.baidu" />
                 </intent-filter>
             </receiver>
             <!-- 魅族代理推送必需组件结束 -->
@@ -204,7 +204,7 @@
                 android:launchMode="singleInstance"
                 android:theme="@android:style/Theme.NoDisplay">
                 <intent-filter>
-                    <action android:name="${applicationId}.action.RECEIVE_MCS_MESSAGE" />
+                    <action android:name="com.cordova.plugins.push.baidu.action.RECEIVE_MCS_MESSAGE" />
                     <category android:name="android.intent.category.DEFAULT" />
                 </intent-filter>
             </activity>

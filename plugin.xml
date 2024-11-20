@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-baidu-push-2024"
-        version="1.0.16">
+        id="cordova-plugin-push-baidu-2024"
+        version="1.0.17">
 
     <name>BaiduPush</name>
     <description>Cordova plugin for Baidu Push Service</description>

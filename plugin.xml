@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-push-baidu-2024"
-        version="1.0.20">
+        version="1.0.21">
 
     <name>BaiduPush</name>
     <description>Cordova plugin for Baidu Push Service</description>
@@ -46,6 +46,28 @@
                 android:protectionLevel="signature" />
         </config-file>
 
+
+        <receiver android:name="com.cordova.plugins.push.baidu.BaiduPushReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+
+                <!-- 使用华为代理功能必须声明,用于接收华为的透传 -->
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        
+        <service
+            android:name="com.baidu.android.pushservice.HmsPushPatchMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
+        
     <source-file src="src/android/BaiduPush.java" target-dir="src/com/cordova/plugins/push/baidu" />
     <source-file src="src/android/BaiduPushReceiver.java" target-dir="src/com/cordova/plugins/push/baidu" />
     <lib-file src="src/android/baidu-push-sdk-8.3.68.0-ext.aar"/>

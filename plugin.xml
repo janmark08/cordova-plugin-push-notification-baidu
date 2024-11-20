@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-baidu-push-2024"
-        version="1.0.13">
+        version="1.0.14">
 
     <name>BaiduPush</name>
     <description>Cordova plugin for Baidu Push Service</description>
@@ -266,10 +266,14 @@
                 android:value="270" />
         </application>
     </config-file>
+
+    <!-- Java source files -->
     <source-file src="src/android/BaiduPush.java" target-dir="src/com/cordova/plugins/push/baidu" />
     <source-file src="src/android/BaiduPushReceiver.java" target-dir="src/com/cordova/plugins/push/baidu" />
-    <source-file src="libs/android/baidu-push-sdk-8.3.68.0-ext.aar" target-dir="libs" />
+
+    <!-- AAR Library -->
     <framework src="libs/android/baidu-push-sdk-8.3.68.0-ext.aar" custom="true" />
+
   </platform>
 
     <!-- ios -->

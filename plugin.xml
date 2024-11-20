@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-baidu-push-2024"
-        version="1.0.11">
+        version="1.0.12">
 
     <name>BaiduPush</name>
     <description>Cordova plugin for Baidu Push Service</description>
@@ -266,16 +266,10 @@
                 android:value="270" />
         </application>
     </config-file>
-<source-file src="src/android/BaiduPush.java" target-dir="src/com/cordova/plugins/push/baidu" />
+    <source-file src="src/android/BaiduPush.java" target-dir="src/com/cordova/plugins/push/baidu" />
     <source-file src="src/android/BaiduPushReceiver.java" target-dir="src/com/cordova/plugins/push/baidu" />
-    <source-file src="libs/android/arm64-v8a/libbdpush_V3_4.so" target-dir="libs/arm64-v8a" />
-    <source-file src="libs/android/armeabi/libbdpush_V3_4.so" target-dir="libs/armeabi" />
-    <source-file src="libs/android/armeabi-v7a/libbdpush_V3_4.so" target-dir="libs/armeabi-v7a" />
-    <source-file src="libs/android/mips/libbdpush_V3_4.so" target-dir="libs/mips" />
-    <source-file src="libs/android/mips64/libbdpush_V3_4.so" target-dir="libs/mips64" />
-    <source-file src="libs/android/x86/libbdpush_V3_4.so" target-dir="libs/x86" />
-    <source-file src="libs/android/x86_64/libbdpush_V3_4.so" target-dir="libs/x86_64" />
-    <source-file src="libs/android/pushservice-7.0.0.27.jar" target-dir="libs" />
+    <source-file src="libs/android/baidu-push-sdk-8.3.68.0-ext.aar" target-dir="libs" />
+    <framework src="libs/android/baidu-push-sdk-8.3.68.0-ext.aar" custom="true" />
   </platform>
 
     <!-- ios -->

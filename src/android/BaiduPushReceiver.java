@@ -118,6 +118,9 @@ public class BaiduPushReceiver extends PushMessageReceiver {
      * @param customContentString
      *            自定义内容,为空或者json字符串
      */
+    // onMessage 方法从v7.2.1版本开始新增notifyId参数
+    // 若使用透传消息上通知栏，为了支持透传通知栏消息覆盖
+    // ，接入方请使用 notifyId 作为 NotificationManager的notify方法中的 id 参数。
     @Override
     public void onMessage(Context context, String message, String customContentString, int notifyId){
         try {
@@ -126,7 +129,7 @@ public class BaiduPushReceiver extends PushMessageReceiver {
             if (!TextUtils.isEmpty(customContentString)) {
                 setStringData(data, "message", message);
                 setStringData(data, "customContentString", customContentString);
-                setStringData(data, "notifyId", notifyId);
+                setStringData(data, "notifyId", String.valueOf(notifyId));
                 jsonObject.put("data", data);
                 jsonObject.put("type", CB_TYPE.onMessage);
                 sendSuccessData(queueOnMessageCallbackContext, BaiduPush.onMessageCallbackContext, jsonObject, true);
@@ -189,10 +192,6 @@ public class BaiduPushReceiver extends PushMessageReceiver {
      * @param customContentString
      *            自定义内容，为空或者json字符串
      */
-
-    // onMessage 方法从v7.2.1版本开始新增notifyId参数
-    // 若使用透传消息上通知栏，为了支持透传通知栏消息覆盖
-    // ，接入方请使用 notifyId 作为 NotificationManager的notify方法中的 id 参数。
 
     @Override
     public void onNotificationArrived(Context context, String title,

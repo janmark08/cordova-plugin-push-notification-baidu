@@ -1,0 +1,34 @@
+def minSdkVersion = 19
+
+if (cdvMinSdkVersion == null) {
+    ext.cdvMinSdkVersion = minSdkVersion
+} else if (cdvMinSdkVersion.toInteger() < minSdkVersion) {
+    ext.cdvMinSdkVersion = minSdkVersion
+}
+
+repositories {
+    // Use mavenCentral() as jcenter is deprecated.
+    mavenCentral()
+    flatDir {
+        dirs 'src/main/libs'
+    }
+}
+
+dependencies {
+    // Use implementation instead of compile
+    implementation(name: 'baidu-push-sdk-8.3.68.0-ext', ext: 'aar')
+}
+
+android {
+    // Ensure SDK compatibility
+    compileSdkVersion 33 // Adjust as per your project requirements
+    defaultConfig {
+        minSdkVersion cdvMinSdkVersion
+        targetSdkVersion 33
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+}

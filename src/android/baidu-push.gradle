@@ -1,16 +1,8 @@
-def minSdkVersion = 19
-
-if (cdvMinSdkVersion == null) {
-    ext.cdvMinSdkVersion = minSdkVersion
-} else if (cdvMinSdkVersion.toInteger() < minSdkVersion) {
-    ext.cdvMinSdkVersion = minSdkVersion
-}
-
 repositories {
-    // Use mavenCentral() as jcenter is deprecated.
+    // Use mavenCentral() instead of jcenter, as jcenter is deprecated
     mavenCentral()
     flatDir {
-        dirs 'src/main/libs'
+        dirs 'libs'
     }
 }
 
@@ -21,9 +13,10 @@ dependencies {
 
 android {
     // Ensure SDK compatibility
-    compileSdkVersion 33 // Adjust as per your project requirements
+    compileSdkVersion 33 // Adjust this to your Cordova Android platform version
     defaultConfig {
-        minSdkVersion cdvMinSdkVersion
+        // Directly set minSdkVersion to avoid variable usage issues
+        minSdkVersion 19
         targetSdkVersion 33
     }
 

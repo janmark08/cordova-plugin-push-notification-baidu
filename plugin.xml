@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-push-baidu-2024"
-        version="1.0.18">
+        version="1.0.19">
 
     <name>BaiduPush</name>
     <description>Cordova plugin for Baidu Push Service</description>
@@ -63,14 +63,6 @@
             <service
                 android:name="com.baidu.android.pushservice.CommandService"
                 android:exported="false" />
-
-            <provider
-                android:name="com.baidu.android.pushservice.PushInfoProvider"
-                android:authorities="com.cordova.plugins.push.baidu.bdpush"
-                android:exported="true"
-                android:process=":bdservice_v1"
-                android:protectionLevel="signature"
-                android:writePermission="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.cordova.plugins.push.baidu" />
                 
             <receiver
                 android:name="com.baidu.android.pushservice.RegistrationReceiver"

@@ -1,6 +1,6 @@
 # Installation
 
-    $ ionic plugin add cordova-plugin-baidu-push
+    $ ionic plugin add cordova-plugin-push-notification-baidu
 
 # Usage
 

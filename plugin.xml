@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-baidu-push"
+        id="cordova-plugin-push-notification-baidu"
         version="0.0.1">
     <name>BaiduPush</name>
     <description>Cordova Plugin for Baidu Push Notifications (SDK v8.3.68.0)</description>

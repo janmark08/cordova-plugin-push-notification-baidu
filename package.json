@@ -1,5 +1,5 @@
 {
-  "name": "cordova-plugin-baidu-push",
+  "name": "cordova-plugin-push-notification-baidu",
   "version": "1.0.0",
   "description": "Cordova Plugin for Baidu Push Notifications (SDK v8.3.68.0)",
   "main": "www/baiduPush.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "cordova": {
-    "id": "cordova-plugin-baidu-push",
+    "id": "cordova-plugin-push-notification-baidu",
     "platforms": [
       "android"
     ]
@@ -24,12 +24,10 @@
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/janmark08/cordova-plugin-baidu-push.git"
+    "url": "git+https://github.com/janmark08/cordova-plugin-push-notification-baidu.git"
   },
-  "author": "Oleksandr Shevchenko",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/janmark08/cordova-plugin-baidu-push/issues"
+    "url": "https://github.com/janmark08/cordova-plugin-push-notification-baidu/issues"
   },
-  "homepage": "https://github.com/janmark08/cordova-plugin-baidu-push#readme"
+  "homepage": "https://github.com/janmark08/cordova-plugin-push-notification-baidu#readme"
 }

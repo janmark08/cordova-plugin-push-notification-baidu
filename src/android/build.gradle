@@ -1,0 +1,10 @@
+// src/android/build.gradle
+repositories {
+    flatDir {
+        dirs 'libs' // Specify the directory containing the AAR file
+    }
+}
+
+dependencies {
+    implementation(name: 'pushsdk-v8.3.68.0', ext: 'aar') // Include the AAR file
+}

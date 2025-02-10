@@ -14,6 +14,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.content.Intent;
+
 
 /**
  * Baidu Push Receiver for handling Baidu Push SDK callbacks.
@@ -104,27 +106,39 @@ public class BaiduPushReceiver extends PushMessageReceiver {
      */
     @Override
     public void onNotificationClicked(Context context, String title, String description, String customContentString) {
-        try {
-            JSONObject jsonObject = new JSONObject();
-            JSONObject data = new JSONObject();
-            if (!TextUtils.isEmpty(title)) {
-                setStringData(data, "title", title);
-                setStringData(data, "description", description);
-                setStringData(data, "customContentString", customContentString);
-                jsonObject.put("data", data);
-                jsonObject.put("type", CB_TYPE.onNotificationClicked);
-                sendSuccessData(queueOnNotificationClickedCallbackContext, BaiduPush.onNotificationClickedCallbackContext, jsonObject, true);
-                Log.d(TAG, jsonObject.toString());
+    try {
+        JSONObject jsonObject = new JSONObject();
+        JSONObject data = new JSONObject();
+        
+        if (!TextUtils.isEmpty(title)) {
+            setStringData(data, "title", title);
+            setStringData(data, "description", description);
+            setStringData(data, "customContentString", customContentString);
+            jsonObject.put("data", data);
+            jsonObject.put("type", CB_TYPE.onNotificationClicked);
+            
+            sendSuccessData(queueOnNotificationClickedCallbackContext, BaiduPush.onNotificationClickedCallbackContext, jsonObject, true);
+            
+            Log.d(TAG, jsonObject.toString());
+            
+            // **Explicitly start your app when notification is clicked**
+            Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+            if (launchIntent != null) {
+                launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                launchIntent.putExtra("push_notification_data", customContentString); // Pass any custom data
+                context.startActivity(launchIntent);
             } else {
-                setStringData(data, "errorCode", "Empty notification click content");
-                sendErrorData(queueOnNotificationClickedCallbackContext, BaiduPush.onNotificationClickedCallbackContext, jsonObject, true);
-                Log.e(TAG, "Empty notification click content");
+                Log.e(TAG, "Launch intent is null. Cannot open app.");
             }
-        } catch (JSONException e) {
-            Log.e(TAG, e.getMessage(), e);
+        } else {
+            setStringData(data, "errorCode", "Empty notification click content");
+            sendErrorData(queueOnNotificationClickedCallbackContext, BaiduPush.onNotificationClickedCallbackContext, jsonObject, true);
+            Log.e(TAG, "Empty notification click content");
         }
+    } catch (JSONException e) {
+        Log.e(TAG, e.getMessage(), e);
     }
-
+}
     /**
      * Called when a notification arrives.
      */

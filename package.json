@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-push-notification-baidu",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Cordova Plugin for Baidu Push Notifications (SDK v8.3.68.0)",
   "main": "www/baiduPush.js",
   "scripts": {

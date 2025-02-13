@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-push-notification-baidu"
-        version="0.0.2">
+        version="0.0.3">
     <name>BaiduPush</name>
     <description>Cordova Plugin for Baidu Push Notifications (SDK v8.3.68.0)</description>
     <license>Apache 2.0</license>
@@ -9,18 +10,15 @@
     <js-module src="www/baiduPush.js" name="baiduPush">
         <clobbers target="baiduPush" />
     </js-module>
-
     <!-- Android platform -->
     <platform name="android">
         <!-- Add Baidu Push SDK AAR file -->
         <lib-file src="src/android/libs/pushsdk-v8.3.68.0.aar" />
-
-      <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="res/xml/config.xml" parent="/*">
             <feature name="BaiduPush">
                 <param name="android-package" value="com.cordova.plugins.push.baidu.BaiduPush" />
             </feature>
         </config-file>
-
         <!-- Add Baidu Push Receiver -->
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <receiver
@@ -35,9 +33,19 @@
                     <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
                 </intent-filter>
             </receiver>
+
+            <service
+                android:name="com.baidu.android.pushservice.PushService"
+                android:exported="false"
+                android:process=":bdservice_v1">
+                <intent-filter>
+                    <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
+                </intent-filter>
+            </service>
+            
         </config-file>
 
-      
+
         <!-- Add necessary permissions -->
         <config-file parent="/*" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.INTERNET" />
@@ -48,9 +56,9 @@
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
             <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-            <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Required for Android 13+ -->
+            <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+            <!-- Required for Android 13+ -->
         </config-file>
-
         <!-- Add source files -->
         <source-file src="src/android/BaiduPush.java" target-dir="src/com/cordova/plugins/push/baidu" />
         <source-file src="src/android/BaiduPushReceiver.java" target-dir="src/com/cordova/plugins/push/baidu" />
